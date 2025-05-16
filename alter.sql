@@ -30,3 +30,21 @@ ALTER Table person2
 
 ALTER TABLE person2
 alter column user_age DROP NOT NULL;
+
+-- add constraint (unique) to selected column
+
+ALTER Table person2
+  ADD constraint unique_person2_user_age UNIQUE(user_age);
+
+  -- Delete unique constraint 
+
+ALTER Table person2
+DROP constraint UNIQUE_person2_user_age;
+
+
+
+-- watching truncate
+
+SELECT * from person4;
+INSERT into person4 VALUES(1,'nahid_hasan',26);
+TRUNCATE TABLE person4;
