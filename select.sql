@@ -89,3 +89,27 @@ SELECT * FROM students
 -- Select students older than 20
 SELECT * FROM students
 WHERE age > 20;
+
+-- show first name in uppercase 
+SELECT upper(first_name), * from students
+
+-- show first_name and last_name in one column
+
+SELECT concat(first_name, ' ', last_name) FROM students;
+
+
+/*
+    @Scalar functions
+ UPPER() Converts a string to uppercase.
+ LOWER() Converts a string to lowercase.
+ CONCAT() Concatenates two or more strings.
+ LENGTH() Returns the number of characters in a string.
+ 
+    @Aggregate functions
+ AVG() Calculate the average of a set of values.
+ MAX() Returns the max value in a set.
+ MIN() Returns the minimum value in a set.
+ SUM Calculates the sum of values in a set.
+ COUNT() Counts the number of rows in a set.
+
+*/
