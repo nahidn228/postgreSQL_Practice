@@ -180,3 +180,14 @@ SELECT * FROM students LIMIT 5 OFFSET 5*0;  -- first page
 SELECT * FROM students LIMIT 5 OFFSET 5*1;  -- 2nd page
 SELECT * FROM students LIMIT 5 OFFSET 5*2;  -- 3rd page
 SELECT * FROM students LIMIT 5 OFFSET 5*3;  -- 4th page
+
+
+SELECT * FROM students;
+-- DELETE
+DELETE FROM students 
+WHERE grade = 'C';
+
+DELETE FROM students 
+WHERE grade = 'B' AND country IN ('UK','USA') ;
+
+SELECT * FROM students WHERE country IN ('USA', 'UK');
