@@ -113,3 +113,19 @@ SELECT concat(first_name, ' ', last_name) FROM students;
  COUNT() Counts the number of rows in a set.
 
 */
+
+
+SELECT * FROM students
+WHERE NOT country = 'USA';
+
+SELECT * FROM students
+WHERE country != 'USA';
+
+SELECT * FROM students 
+WHERE email IS NULL;
+
+SELECT * FROM students 
+WHERE email IS NOT NULL;
+
+-- set default value where value is NULL
+
