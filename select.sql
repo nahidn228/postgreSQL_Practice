@@ -131,3 +131,52 @@ WHERE email IS NOT NULL;
 
 SELECT COALESCE(email, 'Email not provided') FROM students;
 -- ekhane email er value thakle otay bosabe na thakle 'Email not provided'
+
+
+-- SELECT * FROM students
+-- WHERE country = 'USA' OR country = 'Canada' OR country = 'UK';
+
+SELECT * FROM students
+WHERE country IN('USA','Canada', 'UK') ;
+
+SELECT * FROM students
+WHERE country NOT IN('USA','Canada', 'UK') ;
+
+
+-- BETWEEN
+SELECT * FROM students
+  WHERE age BETWEEN 19 AND 22;
+
+  SELECT * FROM students
+  WHERE dob BETWEEN '2000-01-01' AND '2005-01-01' ORDER BY dob ASC;
+
+
+-- first_name er last character "am" gula dekhabe
+   SELECT * FROM students
+   WHERE first_name LIKE '%am';
+
+   -- first_name er First character "A" gula dekhabe
+   SELECT * FROM students
+   WHERE first_name LIKE 'A%';
+
+-- length hobe 3 and last character "a"
+SELECT * FROM students
+   WHERE first_name LIKE '__a';
+
+   SELECT * FROM students
+   WHERE first_name LIKE '__a';
+
+-- LIKE and ILIKE are same. LIKE case sensitive ILIKE case insensitive
+ SELECT * FROM students
+   WHERE first_name ILIKE '%a';
+
+-- LIMIT OFFSET
+-- limit 5 means only show first 5 data,
+-- offset 5 means skip first 5 data and show rest
+SELECT * FROM students LIMIT 5 OFFSET 5;
+
+-- IMPLEMENT pagination using  LIMIT and OFFSET 
+SELECT * FROM students LIMIT 5 OFFSET 5*0;  -- first page
+SELECT * FROM students LIMIT 5 OFFSET 5*1;  -- 2nd page
+SELECT * FROM students LIMIT 5 OFFSET 5*2;  -- 3rd page
+SELECT * FROM students LIMIT 5 OFFSET 5*3;  -- 4th page
