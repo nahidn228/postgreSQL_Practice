@@ -129,3 +129,5 @@ WHERE email IS NOT NULL;
 
 -- set default value where value is NULL
 
+SELECT COALESCE(email, 'Email not provided') FROM students;
+-- ekhane email er value thakle otay bosabe na thakle 'Email not provided'
