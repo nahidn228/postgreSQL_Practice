@@ -191,3 +191,9 @@ DELETE FROM students
 WHERE grade = 'B' AND country IN ('UK','USA') ;
 
 SELECT * FROM students WHERE country IN ('USA', 'UK');
+
+-- UPDATE 
+UPDATE students
+SET email = 'default@gmail.com' WHERE student_id = 5;
+UPDATE students
+  SET email = 'Email Not Provide' WHERE email IS NULL;
