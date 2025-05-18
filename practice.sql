@@ -84,3 +84,9 @@ SELECT MIN(age) AS minimum_age
 FROM descriptions;
 
 SELECT MAX(age) AS maximum_age FROM descriptions;
+
+
+-- change table name description to students
+ALTER table descriptions 
+RENAME  to students;
+
