@@ -89,4 +89,5 @@ SELECT MAX(age) AS maximum_age FROM descriptions;
 -- change table name description to students
 ALTER table descriptions 
 RENAME  to students;
+SELECT * FROM students;
 
