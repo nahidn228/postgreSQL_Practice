@@ -52,8 +52,18 @@ INSERT INTO post (id,title, user_id) VALUES
 
 --Left JOIN
 SELECT * from "user" 
-LEFT JOIN post ON post.user_id = "user".id;
+LEFT JOIN post ON post.user_id = "user".id;  -- LEFT OUTER JOIN
 
 --RIGHT JOIN
 SELECT * from "user" 
-RIGHT JOIN post ON post.user_id = "user".id;
+RIGHT JOIN post ON post.user_id = "user".id;  -- RIGHT OUTER JOIN
+
+-- is swap table name in query, then table value will be swap
+SELECT * from post 
+RIGHT JOIN "user" ON post.user_id = "user".id;
+
+
+-- FULL OUTER JOIN
+
+SELECT * from post 
+FULL JOIN "user" ON post.user_id = "user".id;
