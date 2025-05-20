@@ -51,6 +51,7 @@ INSERT INTO post (id,title, user_id) VALUES
 
 
 --Left JOIN
+
 SELECT * from "user" 
 LEFT JOIN post ON post.user_id = "user".id;  -- LEFT OUTER JOIN
 
