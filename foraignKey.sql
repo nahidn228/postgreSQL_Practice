@@ -14,6 +14,8 @@ CREATE Table post(
 ALTER Table post
 alter COLUMN user_id SET NOT NULL;
 
+
+
 INSERT INTO "user" (username) VALUES
 ('akash'),
 ('batash'),
@@ -57,3 +59,7 @@ INSERT INTO post(title, user_id) VALUES('test', 8)
 
 DELETE FROM "user"
   WHERE id = 4;
+
+
+ALTER TABLE "user" RENAME TO user1;
+ALTER TABLE post RENAME TO post1;
