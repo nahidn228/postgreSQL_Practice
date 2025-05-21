@@ -76,37 +76,26 @@ SELECT department_name, round(AVG(salary)) as avg_salary FROM employees
 JOIN departments USING (department_id)
 GROUP BY department_name;
 
+-- Count Employees in Each Department
+
+SELECT department_name, count(employee_id) as Employee_count FROM employees
+JOIN departments USING (department_id)
+GROUP BY department_name ;
 
 
-
-
-
-
-SELECT * from employees
-JOIN departments ON employees.department_id = departments.department_id;
-
-SELECT * from employees
-JOIN departments USING(department_id);
-
-SELECT department_name, round(avg(salary)) as avg_salary  FROM employees
-JOIN departments USING(department_id)
-GROUP BY department_name;
-
-
-SELECT department_name, count(employee_id) FROM employees
-JOIN departments USING(department_id)
-GROUP BY department_name;
-
-
+-- Find the Department name with the Highest Average Salary
 SELECT department_name, round(avg(salary)) as avg_salary FROM employees
-JOIN departments USING(department_id)
-GROUP BY department_name
-ORDER BY avg_salary desc
-LIMIT 1
-;
+JOIN departments using(department_id)
+GROUP BY department_name 
+ORDER BY avg_salary DESC 
+LIMIT 1;
 
-SELECT extract(YEAR from hire_date) as hire_year, count(*) from employees
+
+
+-- Count Employees Hired Each Year
+SELECT extract(YEAR FROM hire_date)as hire_year, count(*) FROM employees
 GROUP BY hire_year;
+
 
 
 
@@ -133,13 +122,13 @@ INSERT INTO orders (customer_id, order_date, total_amount) VALUES
     (1, '2022-02-05', 180.25),
     (4, '2023-02-05', 190.25);
 
-DROP Table orders;
 
-    -- Find customers who have placed more than 2 orders and calculate the total amount spent by each of these customers.
+  -- Find customers who have placed more than 2 orders and calculate the total amount spent by each of these customers.
 
+SELECT customer_id, count(order_id) as orders, sum(total_amount) as total_spent FROM orders
+GROUP BY customer_id
+HAVING count(orders) >= 2;
 
-
-    SELECT customer_id, count(order_id), sum(total_amount) as total_spent from orders GROUP BY customer_id HAVING count(order_id) > 2;
 
     -- Find the total amount of orders placed each month in the year 2022.
     SELECT extract(month from order_date) as month, sum(total_amount)  from orders WHERE extract(year from order_date) = 2022 GROUP BY month;
