@@ -62,6 +62,25 @@ INSERT INTO departments (department_name) VALUES
     ('Mia Roberts', 10, 70000.25, '2021-11-20');
 
 
+-- Inner Join to Retrieve Employee and Department Information
+SELECT * from employees
+JOIN departments ON employees.department_id = departments.department_id ;
+
+-- Inner Join to Retrieve Employee and Department Information
+SELECT * FROM employees
+JOIN departments USING (department_id)
+
+-- show department name with average  salary
+
+SELECT department_name, round(AVG(salary)) as avg_salary FROM employees
+JOIN departments USING (department_id)
+GROUP BY department_name;
+
+
+
+
+
+
 
 SELECT * from employees
 JOIN departments ON employees.department_id = departments.department_id;
