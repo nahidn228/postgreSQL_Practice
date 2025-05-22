@@ -115,4 +115,23 @@ $$
 
 CALL remove_emp_by_id(30);
 
+
+-- We can use parameter & Variable in Procedure with Notice
+
+CREATE Procedure remove_emp_notice(p_emp_id INT)
+LANGUAGE plpgsql
+AS
+$$
+DECLARE
+test_var INT;
+  BEGIN
+    SELECT employee_id INTO test_var FROM employees WHERE employee_id = p_emp_id;
+    DELETE FROM employees WHERE employee_id = test_var;
+
+    RAISE NOTICE 'Employee removed successfully!';
+  END
+$$
+
+CALL remove_emp_notice(28);
+
 SELECT * FROM employees;
