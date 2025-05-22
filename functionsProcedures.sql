@@ -64,3 +64,55 @@ $$
 $$;
 
 SELECT delete_emp_by_id(29)
+
+
+
+
+-- procedure
+
+CREATE Procedure remove_emp()
+LANGUAGE plpgsql
+AS
+$$
+  BEGIN
+    DELETE FROM employees WHERE employee_id = 29;
+  END
+$$
+
+CALL remove_emp();
+
+-- We can use variable in Procedure
+
+CREATE Procedure remove_emp_var()
+LANGUAGE plpgsql
+AS
+$$
+DECLARE
+test_var INT;
+  BEGIN
+  SELECT employee_id INTO test_var FROM employees WHERE employee_id = 28;
+    DELETE FROM employees WHERE employee_id = test_var;
+  END
+$$
+
+CALL remove_emp_var();
+
+-- We can use parameter & Variable in Procedure
+
+CREATE Procedure remove_emp_by_id(p_emp_id INT)
+LANGUAGE plpgsql
+AS
+$$
+DECLARE
+test_var INT;
+  BEGIN
+    SELECT employee_id INTO test_var FROM employees WHERE employee_id = p_emp_id;
+    DELETE FROM employees WHERE employee_id = test_var;
+
+    RAISE NOTIFY 'Employee removed successfully!';
+  END
+$$
+
+CALL remove_emp_by_id(30);
+
+SELECT * FROM employees;
