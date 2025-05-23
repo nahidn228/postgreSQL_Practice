@@ -25,3 +25,15 @@ SELECT * FROM books WHERE author IN ('George Orwell');
 SELECT * FROM books LIMIT 3;
 SELECT * FROM books LIMIT 3 OFFSET 3;
 SELECT * FROM books LIMIT 3 OFFSET 6;
+
+UPDATE books SET price = price*1.10;
+SELECT * FROM books;
+
+
+-- GROUPING
+SELECT author, count(*) FROM books GROUP BY author;
+SELECT title, count(*) FROM books GROUP BY title;
+
+-- GROUPING & FILTERING
+
+SELECT author, COUNT(*) FROM books GROUP BY author HAVING COUNT(*) > 1; -- here filtering is == HAVING COUNT(*) > 1
