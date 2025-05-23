@@ -19,3 +19,9 @@ SELECT MAX(price), MIN(price) FROM books;
 SELECT * FROM books WHERE price BETWEEN 150 AND 200;
  SELECT * FROM books WHERE title LIKE 'The%';  -- Case Sensitive
 SELECT * FROM books WHERE title ILIKE 't%';  -- Case Insensitive
+SELECT * FROM books WHERE author IN ('George Orwell');
+
+
+SELECT * FROM books LIMIT 3;
+SELECT * FROM books LIMIT 3 OFFSET 3;
+SELECT * FROM books LIMIT 3 OFFSET 6;
