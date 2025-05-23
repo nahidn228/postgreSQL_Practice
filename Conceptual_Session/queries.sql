@@ -12,3 +12,10 @@ SELECT COUNT(*) FROM books;
 SELECT round(AVG(price)) FROM books;
 
 SELECT MAX(price), MIN(price) FROM books;
+
+
+-- WHERE
+
+SELECT * FROM books WHERE price BETWEEN 150 AND 200;
+ SELECT * FROM books WHERE title LIKE 'The%';  -- Case Sensitive
+SELECT * FROM books WHERE title ILIKE 't%';  -- Case Insensitive
