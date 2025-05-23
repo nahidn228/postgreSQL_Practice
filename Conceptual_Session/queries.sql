@@ -37,3 +37,16 @@ SELECT title, count(*) FROM books GROUP BY title;
 -- GROUPING & FILTERING
 
 SELECT author, COUNT(*) FROM books GROUP BY author HAVING COUNT(*) > 1; -- here filtering is == HAVING COUNT(*) > 1
+
+-- Foreign key deletion
+
+ALTER TABLE books DROP CONSTRAINT books_publisher_id_fkey;
+ALTER TABLE books ADD CONSTRAINT books_publisher_id_fkey 
+FOREIGN KEY (publisher_id) REFERENCES publishers(id) ON DELETE CASCADE;
+
+
+DELETE FROM publishers WHERE id = 3;
+
+
+SELECT * FROM books;
+SELECT * FROM publishers;
