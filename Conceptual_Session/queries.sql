@@ -74,3 +74,10 @@ SELECT b.title, b.author, b.price, p.name as publisher FROM books AS b
 
 SELECT b.title, b.author, b.price, p.name as publisher FROM books AS b 
   FULL JOIN publishers AS p ON b.publisher_id = p.id;
+
+  -- Date and Date Functions
+
+SELECT current_date;
+SELECT EXTRACT(YEAR FROM current_date) AS year,
+ EXTRACT(MONTH FROM current_date) AS month,
+ EXTRACT(DAY FROM current_date) AS day;
