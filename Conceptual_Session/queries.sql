@@ -50,3 +50,27 @@ DELETE FROM publishers WHERE id = 3;
 
 SELECT * FROM books;
 SELECT * FROM publishers;
+
+  -- INNER JOIN
+
+SELECT books.title, publishers.name FROM books 
+  INNER JOIN publishers ON books.publisher_id = publishers.id;
+
+SELECT b.title, b.author, p.name as Publisher FROM books as b 
+  INNER JOIN publishers as p ON b.publisher_id = p.id;
+
+  -- LEFT JOIN
+
+SELECT b.title, b.author, b.price, p.name as publisher FROM books AS b 
+  LEFT JOIN publishers AS p ON b.publisher_id = p.id;
+
+  -- RIGHT JOIN
+
+SELECT b.title, b.author, b.price, p.name as publisher FROM books AS b 
+  RIGHT JOIN publishers AS p ON b.publisher_id = p.id;
+
+
+  -- FULL JOIN
+
+SELECT b.title, b.author, b.price, p.name as publisher FROM books AS b 
+  FULL JOIN publishers AS p ON b.publisher_id = p.id;
